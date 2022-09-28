@@ -1,14 +1,31 @@
 #cs1300-gallery {
-  background-color: lightblue;
+  background-color: rgb(50, 50, 50);
 }
 
-/* Uncomment below if images are way too big.
-Selects all image tags and makes them 500px;
- */
-/*img {*/
-/*  width: 500px;*/
-/*}*/
+img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
 
 .gallery-container {
+  flex-direction: row;
+  align-items: center;
+  
   /* TODO add styles (hint: use flex!) https://www.w3schools.com/cssref/ */
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p{
+  color: wheat;
+  text-align: center;
+}
+
+#fruit {
+  background-color: rgb(50, 50, 50) ;
+  
 }
