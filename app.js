@@ -15,7 +15,7 @@ const apiRequest = async () => {
     }
   });
 
-  // console.log(response);
+  console.log(response);
 
   // Return the response in JSON format
   return response.json();
@@ -26,7 +26,17 @@ const updatePage = async () => {
 
   // Make API request and get an array of fruit objects
   const fruitsArray = await apiRequest();
-  // console.log(fruitsArray);
+  console.log(fruitsArray);
+
+  filteredLengthArray = fruitsArray.filter((longFruit) => {
+    return longFruit.name.length > 6;
+  });
+  console.log(filteredLengthArray);
+
+  const longerArray = filteredLengthArray.map((fruits) => {return fruits.name});
+  console.log(longerArray);
+  addText(longerArray);
+  
 
   // TODO: Use either `map` and/or `filter` to extract some data from the array of fruit objects
   // For example, find "name of all fruits whose sugar > 15",
@@ -48,6 +58,14 @@ const exampleAddElement = () => {
   existingElement.append(newElement);
 }
 
+const addText = (array) =>{
+  const newElement = document.createElement("div");
+  newElement.innerHTML = "This is a list of fruits withs name's longer than 6 letters: " + array;
+
+  const existingElement = document.getElementById("fruit");
+  existingElement.append(newElement);
+}
+
 /**
  * To access information in this API, we need to send our requests through a proxy due to CORS restrictions.
  * This will be used as our proxy to avoid CORS issues.
@@ -55,3 +73,4 @@ const exampleAddElement = () => {
 // do not touch - stencil code to add the proxy to avoid CORS
 const PROXY_URL = 'https://cs1300-cors-anywhere.herokuapp.com/'
 const buildProxyEndpoint = (endpoint) => `${PROXY_URL}${endpoint}`;
+
